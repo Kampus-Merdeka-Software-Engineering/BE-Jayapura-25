@@ -55,9 +55,18 @@ forms.forEach((form, index) => {
   });
 });
 
-//
+// function sendData() {
+//   var selectedRating = document.querySelector('input[name="rating"]:checked');
+
+//   if (selectedRating) {
+//     const ratingValue = selectedRating.value;
+//     alert(`Anda memberikan rating ${ratingValue} bintang!`);
+//   } else {
+//   }
+// }
 function ambilNilai() {
   var jawaban = document.getElementsByName("jawaban");
+
   var tampungNilai = [];
 
   for (var i = 0; i < jawaban.length; i++) {

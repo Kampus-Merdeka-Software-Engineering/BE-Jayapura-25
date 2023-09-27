@@ -1,11 +1,12 @@
-const getHome = (req, res) => {
-  res.render("Index");
-};
+const dataModels = require("../model/data");
 
-const getDataFeedback = (req, res) => {
-  res.json({
-    message: "Get Data Feedback Succes",
-  });
+const getHome = async (req, res) => {
+  const [data] = await dataModels.getAllData();
+  // res.json({
+  //   message: "nice",
+  //   data: data,
+  // });
+  res.render("Index", { data: data });
 };
 
 const addFeedback = (req, res) => {
@@ -14,4 +15,4 @@ const addFeedback = (req, res) => {
   });
 };
 
-module.exports = { getHome, addFeedback, getDataFeedback };
+module.exports = { getHome, addFeedback };

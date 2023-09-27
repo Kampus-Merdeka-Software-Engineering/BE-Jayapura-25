@@ -6,27 +6,27 @@ const checkUpRoutes = require("./routes/check-up.js");
 const aboutUsRoutes = require("./routes/about-us.js");
 
 //Database Connection
-const dbPool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "db_mhet",
-});
+// const dbPool = mysql.createPool({
+//   host: "localhost",
+//   user: "root",
+//   password: "",
+//   database: "db_mhet",
+// });
 
-//Database Check Connection
-app.use("/", (req, res) => {
-  dbPool.execute("SELECT * FROM data", (err, rows) => {
-    if (err) {
-      res.json({
-        message: "connection failed",
-      });
-    }
-    res.json({
-      message: "connection success",
-      data: rows,
-    });
-  });
-});
+// //Database Check Connection
+// app.use("/", (req, res) => {
+//   dbPool.execute("SELECT * FROM data", (err, rows) => {
+//     if (err) {
+//       res.json({
+//         message: "connection failed",
+//       });
+//     }
+//     res.json({
+//       message: "connection success",
+//       data: rows,
+//     });
+//   });
+// });
 
 //JSON Rquest & Body Request
 app.use(express.json());

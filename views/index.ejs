@@ -6,6 +6,32 @@
     <link rel="stylesheet" href="http://localhost:4000/Assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <title>M.H.E.T</title>
+    <style>
+      .rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        text-align: center;
+        position: relative;
+      }
+      .rating > input {
+        display: none;
+      }
+      .rating > label {
+        display: inline-block;
+        padding: 5px;
+        font-size: 75px;
+        cursor: pointer;
+      }
+      .rating > label::before {
+        content: "\2605";
+      }
+
+      .rating > input:checked ~ label::before,
+      .rating > label:hover::before {
+        content: "\2605";
+        color: gold;
+      }
+    </style>
   </head>
 
   <body>
@@ -134,17 +160,33 @@
       <div class="contact-container">
         <div class="contact-box">
           <div class="left">
-            <h2>Contact Us</h2>
+            <br />
+            <h2>Testimoni</h2>
             <img src="/Assets/image/contact.png" alt="" />
           </div>
           <div class="right">
+            <br />
+            <h2>Rate Us</h2>
             <form action="" method="post">
-              <input type="text" class="field" placeholder="your name" />
+              <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" checked />
+                <label for="star5"></label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4"></label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3"></label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2"></label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1"></label>
+              </div>
+
+              <input type="text" class="field" placeholder="Masukan Nama Mu" />
               <input type="email" class="field" placeholder="your email" />
               <input type="text" class="field" placeholder="your phone number" />
               <textarea class="field area" placeholder="Message"></textarea>
             </form>
-            <button class="btn">Send</button>
+            <button class="btn" onclick="sendData()">Send</button>
           </div>
         </div>
       </div>
