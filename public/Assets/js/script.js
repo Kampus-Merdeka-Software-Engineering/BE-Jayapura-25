@@ -79,8 +79,12 @@ setInterval(nextSlide, 7000); // Ganti slide setiap 3 detik
 showSlide(currentIndex);
 
 function ambilNilai() {
+  const form = document.getElementById("formTest");
+  const modal = document.getElementById("modalHasil");
+  const modalContent = document.getElementById("modalContent");
+  const closeButton = document.querySelector(".close");
+  const submitButton = document.getElementById("submitButton");
   var jawaban = document.getElementsByName("jawaban");
-
   var tampungNilai = [];
 
   for (var i = 0; i < jawaban.length; i++) {
@@ -97,10 +101,28 @@ function ambilNilai() {
   if (tampungNilai.length < 10) {
     alert("Silahkan Isi Seluruh Jawaban!");
   } else if (total > 0 && total < 14) {
-    alert("Level Stress : Low Stress");
+    submitButton.addEventListener("click", function () {
+      modalContent.innerHTML = `Level Stress Anda : Low Stress`;
+      modal.style.display = "block";
+    });
   } else if (total > 14 && total < 27) {
-    alert("Level Stress : Moderate Stress");
+    submitButton.addEventListener("click", function () {
+      modalContent.innerHTML = `Level Stress Anda : Moderate Stress`;
+      modal.style.display = "block";
+    });
   } else if (total > 27 && total < 41) {
-    alert("Level Stress : High Preceived Stress");
+    submitButton.addEventListener("click", function () {
+      modalContent.innerHTML = `Level Stress Anda : High Preceived Stress`;
+      modal.style.display = "block";
+    });
   }
+  closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
 }
