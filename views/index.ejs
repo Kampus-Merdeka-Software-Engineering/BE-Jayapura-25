@@ -5,33 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="http://localhost:4000/Assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <title>M.H.E.T</title>
-    <style>
-      .rating {
-        unicode-bidi: bidi-override;
-        direction: rtl;
-        text-align: center;
-        position: relative;
-      }
-      .rating > input {
-        display: none;
-      }
-      .rating > label {
-        display: inline-block;
-        padding: 5px;
-        font-size: 75px;
-        cursor: pointer;
-      }
-      .rating > label::before {
-        content: "\2605";
-      }
-
-      .rating > input:checked ~ label::before,
-      .rating > label:hover::before {
-        content: "\2605";
-        color: gold;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Great Vibes:wght@WEIGHT_OR_RANGE&display=swap" rel="stylesheet" />
+    <title>Welcome</title>
   </head>
 
   <body>
@@ -162,13 +138,16 @@
           <div class="left">
             <br />
             <h2>Testimoni</h2>
-            <% data.forEach(data => { %>
-            <ul>
-              <li>"<%= data.name %>"</li>
-              <li><%= data.message %></li>
-              <br />
-            </ul>
-            <% }) %>
+            <div class="carousel">
+              <% data.forEach(data => { %>
+              <div class="carousel-slide">
+                <h5>"<%= data.name %>"</h5>
+                <br />
+
+                <p><%= data.message %></p>
+              </div>
+              <% }) %>
+            </div>
           </div>
           <div class="right">
             <br />

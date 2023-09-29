@@ -55,15 +55,29 @@ forms.forEach((form, index) => {
   });
 });
 
-// function sendData() {
-//   var selectedRating = document.querySelector('input[name="rating"]:checked');
+const carouselSlides = document.querySelectorAll(".carousel-slide");
+let currentIndex = 0;
 
-//   if (selectedRating) {
-//     const ratingValue = selectedRating.value;
-//     alert(`Anda memberikan rating ${ratingValue} bintang!`);
-//   } else {
-//   }
-// }
+function showSlide(index) {
+  carouselSlides.forEach((slide, i) => {
+    if (i === index) {
+      slide.style.display = "block";
+    } else {
+      slide.style.display = "none";
+    }
+  });
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % carouselSlides.length;
+  showSlide(currentIndex);
+}
+
+setInterval(nextSlide, 7000); // Ganti slide setiap 3 detik
+
+// Tampilkan slide pertama saat halaman dimuat
+showSlide(currentIndex);
+
 function ambilNilai() {
   var jawaban = document.getElementsByName("jawaban");
 
@@ -89,9 +103,4 @@ function ambilNilai() {
   } else if (total > 27 && total < 41) {
     alert("Level Stress : High Preceived Stress");
   }
-  console.log(total);
 }
-
-// Scores ranging from 0-13 would be considered low stress.
-// Scores ranging from 14-26 would be considered moderate stress.
-// Scores ranging from 27-40 would be considered high perceived stress.
