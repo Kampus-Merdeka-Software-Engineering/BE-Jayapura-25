@@ -1,18 +1,31 @@
 const dataModels = require("../model/data");
 
 const getHome = async (req, res) => {
-  const [data] = await dataModels.getAllData();
-  // res.json({
-  //   message: "nice",
-  //   data: data,
-  // });
-  res.render("Index", { data: data });
+  try {
+    const [data] = await dataModels.getAllData();
+    res.render("Index", { data });
+  } catch (error) {
+    res.json({
+      message: "Server Error",
+      serverMessage: error,
+    });
+  }
 };
 
-const addFeedback = (req, res) => {
-  res.json({
-    message: "Create New Feedback Succes",
-  });
+const addFeedback = async (req, res) => {
+  const { body } = req;
+  try {
+    await dataModels.addFeedback(body);
+    res.json({
+      message: "Create New Feedback Succes",
+      data: body,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server Error",
+      serverMessage: error,
+    });
+  }
 };
 
 module.exports = { getHome, addFeedback };

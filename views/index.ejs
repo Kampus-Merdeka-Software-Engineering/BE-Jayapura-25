@@ -162,12 +162,18 @@
           <div class="left">
             <br />
             <h2>Testimoni</h2>
-            <img src="/Assets/image/contact.png" alt="" />
+            <% data.forEach(data => { %>
+            <ul>
+              <li>"<%= data.name %>"</li>
+              <li><%= data.message %></li>
+              <br />
+            </ul>
+            <% }) %>
           </div>
           <div class="right">
             <br />
             <h2>Rate Us</h2>
-            <form action="" method="post">
+            <form action="http://localhost:4000/home" method="post">
               <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5" checked />
                 <label for="star5"></label>
@@ -180,17 +186,16 @@
                 <input type="radio" id="star1" name="rating" value="1" />
                 <label for="star1"></label>
               </div>
-
-              <input type="text" class="field" placeholder="Masukan Nama Mu" />
-              <input type="email" class="field" placeholder="your email" />
-              <input type="text" class="field" placeholder="your phone number" />
-              <textarea class="field area" placeholder="Message"></textarea>
+              <input type="text" class="field" name="nama" maxlength="100" placeholder="Masukan Nama " />
+              <input type="email" class="field" name="email" maxlength="100" placeholder="Masukan Email " />
+              <input type="text" class="field" name="Telephone" maxlength="100" placeholder="Masukan Nomor Telephone" />
+              <textarea class="field area" maxlength="100" placeholder="Berikan Feedback"></textarea>
             </form>
             <button class="btn" onclick="sendData()">Send</button>
           </div>
         </div>
       </div>
     </section>
-    <script src="/Assets/js/script.js"></script>
+    <script src="http://localhost:4000/Assets/js/script.js"></script>
   </body>
 </html>
