@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Get all the form elements with the class "form-test"
+// Ambil Form Test
 const forms = document.querySelectorAll(".form-test");
 
 // Add a change event listener to each radio button in the forms
@@ -33,19 +33,15 @@ forms.forEach((form, index) => {
   const radioButtons = form.querySelectorAll('input[type="radio"]');
   radioButtons.forEach((radioButton, radioIndex) => {
     radioButton.addEventListener("change", () => {
-      // Get the position of the next form
       if (index < forms.length - 1) {
         const nextForm = forms[index + 1];
         const rect = nextForm.getBoundingClientRect();
 
-        // Calculate the center position of the viewport vertically
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const centerY = window.scrollY + windowHeight / 2;
 
-        // Calculate the scroll position to center the next form vertically
         const scrollToY = rect.top + window.scrollY - windowHeight / 2 + rect.height / 2;
 
-        // Scroll to the next form with smooth behavior
         window.scrollTo({
           top: scrollToY,
           behavior: "smooth",

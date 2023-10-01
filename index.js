@@ -8,7 +8,7 @@ const aboutUsRoutes = require("./routes/about-us.js");
 
 //JSON Rquest & Body Request
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 //Using EJS
 app.set("view engine", "ejs");

@@ -1,3 +1,4 @@
+const db = require("../config/database");
 const dataModels = require("../model/data");
 
 const getHome = async (req, res) => {
@@ -13,19 +14,18 @@ const getHome = async (req, res) => {
 };
 
 const addFeedback = async (req, res) => {
-  const { body } = req;
-  try {
-    await dataModels.addFeedback(body);
-    res.json({
-      message: "Create New Feedback Succes",
-      data: body,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: "Server Error",
-      serverMessage: error,
-    });
-  }
+  const { rating, nama, email, phone, feedback } = await req.body;
+  const sql = "INSERT INTO data(rating, name, email, phone, message) VALUES (?, ?, ?,?,?)";
+  const values = [rating, nama, email, phone, feedback];
+
+  db.query(sql, values, (err) => {
+    if (err) {
+      console.error("Gagal menyimpan data ke database: " + err.message);
+      return res.redirect("/home");
+    }
+    alert("Data berhasil disimpan ke database");
+    res.redirect("/");
+  });
 };
 
 module.exports = { getHome, addFeedback };
