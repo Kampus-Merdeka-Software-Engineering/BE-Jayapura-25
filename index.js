@@ -10,13 +10,11 @@ const aboutUsRoutes = require("./routes/about-us.js");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//Using EJS
-app.set("view engine", "ejs");
-
 // Define Assets
 app.use(express.static(__dirname + "/public"));
 
 // Routing
+app.use("/", homeRoutes);
 app.use("/home", homeRoutes);
 app.use("/checkup", checkUpRoutes);
 app.use("/aboutus", aboutUsRoutes);

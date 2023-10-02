@@ -1,11 +1,5 @@
 const getCheckUpPage = (req, res) => {
-  res.render("checkUp");
+  res.redirect("http://localhost:4000/CheckUp.html");
 };
 
-const getFormTest = (req, res) => {
-  res.json({
-    message: "Get Form Test Succes",
-  });
-};
-
-module.exports = { getCheckUpPage, getFormTest };
+module.exports = { getCheckUpPage };

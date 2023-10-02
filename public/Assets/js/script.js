@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startTestButton = document.getElementById("start-test");
 
   // Tambahkan event listener untuk tombol "Start Test"
-  startTestButton.addEventListener("click", function (event) {
+  startTestButton.addEventListener("click", (event) => {
     event.preventDefault(); // Mencegah tindakan default dari tautan
 
     // Sembunyikan section "home"
