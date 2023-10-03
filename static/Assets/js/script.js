@@ -92,23 +92,40 @@ function ambilNilai() {
   var total = tampungNilai.reduce(function (accu, curr) {
     return accu + curr;
   }, 0);
-
+  var solusi1 = `
+  <ol>
+    <li>A</li>
+    <li>B</li>
+  </ol>
+  `;
+  var solusi2 = `
+  <ol>
+    <li>A</li>
+    <li>B</li>
+  </ol>
+  `;
+  var solusi3 = `
+  <ol>
+    <li>A</li>
+    <li>B</li>
+  </ol>
+  `;
   // Penyesuaian Nilai
   if (tampungNilai.length < 10) {
     alert("Silahkan Isi Seluruh Jawaban!");
   } else if (total > 0 && total < 14) {
     submitButton.addEventListener("click", function () {
-      modalContent.innerHTML = `Level Stress Anda : Low Stress`;
+      modalContent.innerHTML = `Level Stress Anda : Low Stress Anda Bisa Melakukan ${solusi1}`;
       modal.style.display = "block";
     });
   } else if (total > 14 && total < 27) {
     submitButton.addEventListener("click", function () {
-      modalContent.innerHTML = `Level Stress Anda : Moderate Stress`;
+      modalContent.innerHTML = `Level Stress Anda : Moderate Stress Anda Bisa Melakukan ${solusi2}`;
       modal.style.display = "block";
     });
   } else if (total > 27 && total < 41) {
     submitButton.addEventListener("click", function () {
-      modalContent.innerHTML = `Level Stress Anda : High Preceived Stress`;
+      modalContent.innerHTML = `Level Stress Anda : High Preceived Stress Anda Bisa Melakukan ${solusi3}`;
       modal.style.display = "block";
     });
   }
@@ -144,12 +161,12 @@ function sendData() {
   })
     .then(function (response) {
       if (response.ok) {
-        return response.redirect("http://localhost:4000/");
+        return response.json();
       }
       return Promise.reject(response);
     })
     .catch(function (error) {
-      console.log(error);
+      alert(error);
     });
 }
 

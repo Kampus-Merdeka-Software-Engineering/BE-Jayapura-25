@@ -507,7 +507,7 @@ header {
   .carousel {
     position: relative;
     top: 100px;
-    left: 20%;
+    left: 5%;
   }
   .card-header img {
     text-align: center;
@@ -627,6 +627,11 @@ label span:before {
     width: 100%; /* Make cards full-width on smaller screens */
     margin: 10px 0; /* Adjust margin for smaller screens */
     padding: 15px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .modal-content {
+    width: 80%;
+    margin: 15% auto;
   }
 }
 

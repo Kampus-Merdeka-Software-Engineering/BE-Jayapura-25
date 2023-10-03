@@ -56,11 +56,14 @@ router.post("/home", (req, res, next) => {
       phone: req.body.phone,
       message: req.body.message,
     })
-    .then(function () {
+    .then(function (data) {
       res.redirect("http://localhost:4000/");
+      // res.status(201).json({
+      //   message: "Data Berhasil Ditambahkan",
+      //   data: data,
+      // });
     })
     .catch(function (err) {
-      console.log(err);
       res.status(500).json({
         message: err,
       });
