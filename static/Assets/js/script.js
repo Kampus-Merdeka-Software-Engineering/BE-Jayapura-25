@@ -158,16 +158,9 @@ function sendData() {
       phone: phone.value,
       message: message.value,
     }),
-  })
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(response);
-    })
-    .catch(function (error) {
-      alert(error);
-    });
+  }).catch(function (error) {
+    alert(error);
+  });
 }
 
 $.getJSON("http://localhost:4000/testimoni", function (data) {
