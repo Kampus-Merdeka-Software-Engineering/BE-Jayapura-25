@@ -11,7 +11,13 @@ const router = express.Router();
 // Using Req Body & JSON Res
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+// CORS
+const corsOptions = {
+  origin: "https://nodejs-production-2725.up.railway.app/",
+  optionsSuccessStatus: 200, // Beberapa browser memerlukan ini
+};
+app.use(cors(corsOptions));
 
 // Using Static Routing
 app.use(express.static(__dirname + "/static"));
