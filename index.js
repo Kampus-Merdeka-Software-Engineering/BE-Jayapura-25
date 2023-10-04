@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
-
+const path = require("path");
 const db = require("./db");
+const sequelize = require("sequelize");
 
 // Using Express Framework
 const app = express();
@@ -20,7 +21,7 @@ app.use("/", router);
 // Routing Get Homepage
 router.get("/", (req, res, next) => {
   // Ganti Link GitHub Pages
-  res.redirect("githubpages/index.html");
+  res.redirect("https://kampus-merdeka-software-engineering.github.io/FE-Jayapura-25/index.html");
 });
 
 // Routing Get Data Feedback
