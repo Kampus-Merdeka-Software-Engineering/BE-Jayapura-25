@@ -149,7 +149,7 @@ var message = document.getElementById("message");
 btn.addEventListener("click", sendData);
 
 function sendData() {
-  fetch("http://localhost:4000/home", {
+  fetch("be-jayapura-25-production.up.railway.app/home", {
     method: "POST",
     body: JSON.stringify({
       rating: rating.value,
@@ -163,7 +163,7 @@ function sendData() {
   });
 }
 
-$.getJSON("http://localhost:4000/testimoni", function (data) {
+$.getJSON("be-jayapura-25-production.up.railway.app/testimoni", function (data) {
   let item = data.data;
   let currentIndex = 0;
 

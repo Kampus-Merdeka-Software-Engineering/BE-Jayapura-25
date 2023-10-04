@@ -20,7 +20,7 @@ app.use("/", router);
 // Routing
 // Routing Get Homepage
 router.get("/", (req, res, next) => {
-  res.redirect("http://localhost:4000/index.html");
+  res.redirect("be-jayapura-25-production.up.railway.app/index.html");
 });
 
 // Routing Get Data Feedback
@@ -57,7 +57,7 @@ router.post("/home", (req, res, next) => {
       message: req.body.message,
     })
     .then(function (data) {
-      res.redirect("http://localhost:4000/");
+      res.redirect("be-jayapura-25-production.up.railway.app/");
       // res.status(201).json({
       //   message: "Data Berhasil Ditambahkan",
       //   data: data,
@@ -72,12 +72,12 @@ router.post("/home", (req, res, next) => {
 
 // Routing Get Checkup Page
 router.get("/checkup", function (req, res, next) {
-  res.redirect("http://localhost:4000/CheckUp.html");
+  res.redirect("be-jayapura-25-production.up.railway.app/CheckUp.html");
 });
 
 // Routing Get About Us Page
 router.get("/aboutus", function (req, res, next) {
-  res.redirect("http://localhost:4000/AboutUs.html");
+  res.redirect("be-jayapura-25-production.up.railway.app/AboutUs.html");
 });
 
 // Running Server
