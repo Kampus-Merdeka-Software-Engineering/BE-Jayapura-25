@@ -1,8 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
+
 const db = require("./db");
-const sequelize = require("sequelize");
 
 // Using Express Framework
 const app = express();
@@ -20,7 +19,8 @@ app.use("/", router);
 // Routing
 // Routing Get Homepage
 router.get("/", (req, res, next) => {
-  res.redirect("https://nodejs-production-2725.up.railway.app/index.html");
+  // Ganti Link GitHub Pages
+  res.redirect("githubpages/index.html");
 });
 
 // Routing Get Data Feedback
@@ -57,11 +57,7 @@ router.post("/home", (req, res, next) => {
       message: req.body.message,
     })
     .then(function (data) {
-      res.redirect("https://nodejs-production-2725.up.railway.app/");
-      // res.status(201).json({
-      //   message: "Data Berhasil Ditambahkan",
-      //   data: data,
-      // });
+      res.redirect("https://kampus-merdeka-software-engineering.github.io/FE-Jayapura-25/index.html");
     })
     .catch(function (err) {
       res.status(500).json({
@@ -70,26 +66,16 @@ router.post("/home", (req, res, next) => {
     });
 });
 
-// Routing Get Checkup Page
-router.get("/checkup", function (req, res, next) {
-  res.redirect("https://nodejs-production-2725.up.railway.app/CheckUp.html");
-});
-
-// Routing Get About Us Page
-router.get("/aboutus", function (req, res, next) {
-  res.redirect("https://nodejs-production-2725.up.railway.app/AboutUs.html");
-});
-
 // Running Server
 const port = 4000;
 app.listen(port, function () {
   db.conn
     .authenticate()
     .then(function () {
-      console.log("Database terhubung");
+      console.log("Database Connected");
     })
     .catch(function (err) {
-      console.log("Database gagal terhubung karena:", err);
+      console.log("Database Failed Connected :", err);
     });
-  console.log("server start on", port);
+  console.log("Server Succesfully Running At Port :", port);
 });
