@@ -13,11 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // CORS
-const corsOptions = {
-  origin: "https://nodejs-production-2725.up.railway.app/",
-  optionsSuccessStatus: 200, // Beberapa browser memerlukan ini
-};
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 // Using Static Routing
 app.use(express.static(__dirname + "/static"));
