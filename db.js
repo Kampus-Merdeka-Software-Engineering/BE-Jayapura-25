@@ -2,10 +2,10 @@ const sequelize = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
-const conn = new sequelize.Sequelize("mysql://avnadmin:AVNS_hNqJ1VIUgBr37vPVMJ0@mysql-3dbd2932-jayapura25-capstoneproject.aivencloud.com:17670/DB_MHET", {
+const conn = new sequelize.Sequelize("mysql://avnadmin:AVNS_hNqJ1VIUgBr37vPVMJ0@mysql-3dbd2932-jayapura25-capstoneproject.aivencloud.com:17670/DB_MHET?ssl-mode=REQUIRED", {
   ssl: fs.readFileSync(path.join(__dirname, "credential.pem")),
   dialect: "mysql",
-  logging: false,
+  logging: true,
 });
 
 const data = conn.define(
