@@ -45,7 +45,7 @@ router.get("/testimoni", function (req, res, next) {
 });
 
 //Routing POST Homepage
-router.post("/home", (req, res, next) => {
+router.post("/post", (req, res, next) => {
   if (req.body.rating == "" || req.body.nama == "" || req.body.email == "" || req.body.phone == "" || req.body.message == "") {
     res.status(400).json({
       message: "EMPTY FIELD",
